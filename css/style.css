@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: black;
+  font-family: 'Press Start 2P', monospace;
+  overflow: hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IMAGEN DE PANTALLA (SIEMPRE COMPLETA) */
+.bg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;          /* CLAVE: no recorta */
+  image-rendering: pixelated;
+  background: black;
+}
+
+/* BOTÓN START (VISIBLE) */
+.start-btn {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  background: none;
+  border: 4px solid #ffcc00;
+  color: #ffcc00;
+  padding: 20px 40px;
+  font-size: 18px;
+  cursor: pointer;
+  animation: blink 1s infinite;
+  z-index: 10;
+}
+
+/* ZONAS CLICKEABLES INVISIBLES */
+.hit {
+  position: absolute;
+  background: red;      /* usar solo para debug */
+  opacity: 0;           /* INVISIBLE */
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* POSICIONES (AJUSTADAS A IMAGEN TIPO C64 HORIZONTAL) */
+.hit.fede {
+  top: 30%;
+  left: 12%;
+  width: 22%;
+  height: 45%;
+}
+
+.hit.chicho {
+  top: 30%;
+  left: 39%;
+  width: 22%;
+  height: 45%;
+}
+
+.hit.sebocha {
+  top: 30%;
+  left: 66%;
+  width: 22%;
+  height: 45%;
+}
+
+/* HUD (para game.html) */
+.hud {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 14px;
+  border: 2px solid #ffffff;
+  font-size: 10px;
+  z-index: 10;
+}
+
+/* EFECTO CRT */
+.crt::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* BLINK RETRO */
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.3; }
+}

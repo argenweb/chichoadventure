@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>PRESS START</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="crt">
+
+  <audio id="bgm" src="assets/intro.mp3" loop></audio>
+
+  <div class="screen">
+    <img src="assets/screen_intro.png" alt="Intro" class="bg" />
+    <button id="startBtn" class="start-btn">PRESS START</button>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    initMusic();
+    document.getElementById("startBtn").onclick = () => {
+      window.location.href = "select.html";
+    };
+  </script>
+
+</body>
+</html>

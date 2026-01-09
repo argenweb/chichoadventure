@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>GAME</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="crt">
+
+  <audio id="bgm" src="assets/intro.mp3" loop></audio>
+
+  <div class="screen">
+    <img src="assets/screen_game.png" class="bg" />
+    <div class="hud">
+      PLAYER: <span id="playerName"></span>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    initMusic();
+    document.getElementById("playerName").innerText =
+      localStorage.getItem("player")?.toUpperCase() || "???";
+  </script>
+
+</body>
+</html>
